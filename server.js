@@ -8,6 +8,12 @@ var easyrtc = require("easyrtc");           // EasyRTC external module
 var httpApp = express();
 httpApp.use(express.static(__dirname + "/static/"));
 
+httpApp.get('/', function(req, res){
+  res.sendfile('demo_multistream.html');
+});
+
+
+
 // Start Express http server on port 8080
 var webServer = http.createServer(httpApp).listen(80);
 //var webserver = httpApp.listen(process.env.port || 80);
@@ -17,7 +23,6 @@ var socketServer = io.listen(webServer);
 
 // Start EasyRTC server
 var rtc = easyrtc.listen(httpApp, socketServer);
-
 httpApp.listen(process.env.OPENSHIFT_NODEJS_PORT || 8080,
 process.env.OPENSHIFT_NODEJS_IP);
 //app = express();  
