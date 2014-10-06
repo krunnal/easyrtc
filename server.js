@@ -18,6 +18,8 @@ var socketServer = io.listen(webServer);
 // Start EasyRTC server
 var rtc = easyrtc.listen(httpApp, socketServer);
 
+httpApp.listen(process.env.OPENSHIFT_NODEJS_PORT || 8080,
+process.env.OPENSHIFT_NODEJS_IP);
 //app = express();  
 //var port = process.env.OPENSHIFT_NODEJS_PORT ||  process.env.OPENSHIFT_INTERNAL_PORT || 8080;  
 //var ipaddr = process.env.OPENSHIFT_NODEJS_IP || process.env.OPENSHIFT_INTERNAL_IP;  
