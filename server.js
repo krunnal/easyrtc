@@ -9,10 +9,16 @@ var httpApp = express();
 httpApp.use(express.static(__dirname + "/static/"));
 
 // Start Express http server on port 8080
-var webServer = http.createServer(httpApp).listen(80);
+var webServer = http.createServer(httpApp).listen(8080);
 
 // Start Socket.io so it attaches itself to Express server
 var socketServer = io.listen(webServer, {"log level":1});
 
 // Start EasyRTC server
 var rtc = easyrtc.listen(httpApp, socketServer);
+
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+server.listen( port, ipaddress, function() {
+    console.log((new Date()) + ' Server is listening on port 8080');
+});
