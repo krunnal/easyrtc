@@ -17,8 +17,7 @@ var socketServer = io.listen(webServer, {"log level":1});
 // Start EasyRTC server
 var rtc = easyrtc.listen(httpApp, socketServer);
 
-var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
-var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-server.listen( port, ipaddress, function() {
-    console.log((new Date()) + ' Server is listening on port 8080');
-});
+app = express();  
+var port = process.env.OPENSHIFT_NODEJS_PORT ||  process.env.OPENSHIFT_INTERNAL_PORT || 8080;  
+var ipaddr = process.env.OPENSHIFT_NODEJS_IP || process.env.OPENSHIFT_INTERNAL_IP;  
+app.listen(port, ipaddr);
