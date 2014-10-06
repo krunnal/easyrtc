@@ -9,15 +9,16 @@ var httpApp = express();
 httpApp.use(express.static(__dirname + "/static/"));
 
 // Start Express http server on port 8080
-var webServer = http.createServer(httpApp).listen(8080);
+var webServer = http.createServer(httpApp).listen(80);
+//var webserver = httpApp.listen(process.env.port || 80);
 
 // Start Socket.io so it attaches itself to Express server
-var socketServer = io.listen(webServer, {"log level":1});
+var socketServer = io.listen(webServer);
 
 // Start EasyRTC server
 var rtc = easyrtc.listen(httpApp, socketServer);
 
-app = express();  
-var port = process.env.OPENSHIFT_NODEJS_PORT ||  process.env.OPENSHIFT_INTERNAL_PORT || 8080;  
-var ipaddr = process.env.OPENSHIFT_NODEJS_IP || process.env.OPENSHIFT_INTERNAL_IP;  
-app.listen(port, ipaddr);
+//app = express();  
+//var port = process.env.OPENSHIFT_NODEJS_PORT ||  process.env.OPENSHIFT_INTERNAL_PORT || 8080;  
+//var ipaddr = process.env.OPENSHIFT_NODEJS_IP || process.env.OPENSHIFT_INTERNAL_IP;  
+//app.listen(port, ipaddr);
