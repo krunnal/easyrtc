@@ -9,7 +9,8 @@
   "scripts": {
     "start"     : "node server.js"
   },
-  
+  "main": "server.js"
+
   "dependencies" : {
     "easyrtc"   : "1.0.x",
     "express"   : "*",
