@@ -17,5 +17,5 @@ var socketServer = io.listen(webServer, {"log level":1});
 // Start EasyRTC server
 var rtc = easyrtc.listen(httpApp, socketServer);
 
-httpApp.listen(process.env.OPENSHIFT_NODEJS_PORT || 8080,
+httpApp.listen(process.env.OPENSHIFT_NODEJS_PORT || 80,
 process.env.OPENSHIFT_NODEJS_IP);
