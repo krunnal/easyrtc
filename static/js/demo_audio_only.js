@@ -36,7 +36,7 @@ function enable(domId) {
 
 
 function connect() {
-	easyrtc.setSocketUrl(":8080");
+	easyrtc.setSocketUrl("http://easyrtc-sixsteps.rhcloud.com:8080");
     console.log("Initializing.");
     easyrtc.enableVideo(false);
     easyrtc.enableVideoReceive(false);
