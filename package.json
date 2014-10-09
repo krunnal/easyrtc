@@ -8,9 +8,9 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "easyrtc": "^1.0.12",
-    "express": "*",
-    "socket.io": "^0.9.17"
+    "easyrtc": "^1.0.x",
+    "express": "^4.9.6",
+    "socket.io": "^0.9.x"
   },
   "license": "BSD2",
   "engines": {
