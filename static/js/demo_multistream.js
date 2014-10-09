@@ -103,7 +103,7 @@ function addSrcButton(buttonLabel, videoId) {
 }
 
 function connect() {
-	easyrtc.setSocketUrl("//easyrtc-sixsteps.rhcloud.com:8080");
+	easyrtc.setSocketUrl("http://easyrtc-sixsteps.rhcloud.com:8080");
 	console.log("Initializing.");
     easyrtc.setRoomOccupantListener(convertListToButtons);
     easyrtc.connect("easyrtc.multistream", loginSuccess, loginFailure);
